@@ -1,5 +1,7 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 
 import javax.swing.JPanel;
@@ -35,7 +37,22 @@ public class Panel
 		final double alt = 150;
 
 		final Rectangle2D rt = new Rectangle2D.Double( leftX, topY, larg, alt );
-		graphics2d.draw( rt );
+		graphics2d.draw( rt ); // draw or fill (figuras preenchidas)
+
+		// Desenha elipse interna ao retângulo
+		final Ellipse2D ellipse2d = new Ellipse2D.Double();
+		ellipse2d.setFrame( rt );
+		graphics2d.draw( ellipse2d );
+
+		// Desenha círculo no mesmo centro
+		final double cX = rt.getCenterX();
+		final double cY = rt.getCenterY();
+		final double r = 150.0;
+
+		final Ellipse2D circle = new Ellipse2D.Double();
+		circle.setFrameFromCenter( cX, cY, cX + r, cY + r );
+		graphics2d.setPaint( Color.BLUE );
+		graphics2d.draw( circle );
 
 	}
 }

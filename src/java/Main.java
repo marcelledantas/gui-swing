@@ -1,3 +1,4 @@
+import java.awt.CardLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
@@ -28,7 +29,7 @@ public class Main
         Panel panel = new Panel();
         frame.add(panel);
         
-        frame.setVisible(true);
-	}
+        frame.setVisible(true);      
+	}    
 
 }
